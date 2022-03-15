@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_purple_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="50dp"
+            app:cardBackgroundColor="@color/app_purple_dark">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="M G Player"
+                android:textColor="@color/app_white"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAlignment="center"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="61dp"
+            app:cardElevation="6dp">
+
+            <ImageView
+                android:id="@+id/imgMusicPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/man" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/musicName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/kultan_koufi_circular"
+            android:gravity="center"
+            android:text="Man Bahat Ghahram"
+            android:textAlignment="center"
+            android:textColor="@color/app_purple_dark"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/artistName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/kultan_koufi_circular"
+            android:gravity="center"
+            android:text="Amir Tataloo"
+            android:textAlignment="center"
+            android:textColor="@color/app_purple_hint"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seekBarPlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="3dp"
+                android:minHeight="3dp"
+                android:progress="50"
+                android:progressDrawable="@drawable/seek_bar_ruler"
+                android:thumb="@drawable/seek_bar_silder" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textViewNowDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/kultan_koufi_circular"
+                    android:gravity="center"
+                    android:text="00:00" />
+
+                <TextView
+                    android:id="@+id/textViewDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/kultan_koufi_circular"
+                    android:gravity="center"
+                    android:text="08:00" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBackMusic"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_marginLeft="95dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingLeft="24dp"
+                    app:backgroundTint="@color/app_white"
+                    app:cornerRadius="50dp"
+                    app:icon="@drawable/ic_left"
+                    app:iconPadding="0dp"
+                    app:iconSize="16dp"
+                    app:iconTint="@color/app_purple_dark"
+                    app:rippleColor="@color/app_yellow"
+                    app:strokeColor="@color/app_yellow"
+                    app:strokeWidth="3dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNextMusic"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_marginRight="95dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingRight="24dp"
+                    app:backgroundTint="@color/app_white"
+                    app:cornerRadius="50dp"
+                    app:icon="@drawable/ic_right"
+                    app:iconGravity="end"
+                    app:iconPadding="0dp"
+                    app:iconSize="16dp"
+                    app:iconTint="@color/app_purple_dark"
+                    app:rippleColor="@color/app_yellow"
+                    app:strokeColor="@color/app_yellow"
+                    app:strokeWidth="3dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPausePlay"
+                android:layout_width="66dp"
+                android:layout_height="66dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/app_white"
+                app:cornerRadius="120dp"
+                app:icon="@drawable/ic_pause"
+                app:iconGravity="textEnd"
+                app:iconPadding="0dp"
+                app:iconSize="32dp"
+                app:iconTint="@color/app_purple_dark"
+                app:rippleColor="@color/app_yellow"
+                app:strokeColor="@color/app_yellow"
+                app:strokeWidth="3dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/back_tools_music"
+        android:clipToPadding="false"
+        android:elevation="3dp">
+
+        <ImageView
+            android:id="@+id/btnRepeatMusic"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_loop"
+            app:tint="@color/app_purple_dark" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_share"
+            app:tint="@color/app_purple_dark" />
+
+        <ImageView
+            android:id="@+id/btnAddToFavorite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_star_favorite_fill"
+            app:tint="@color/app_purple_dark" />
+    </RelativeLayout>
+
+</RelativeLayout>
