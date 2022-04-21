@@ -26,9 +26,9 @@ class HomeAdapter(var listener:OnSongClickListener) : RecyclerView.Adapter<HomeA
             musicName.text = song.name
             artistName.text = song.artist
 
-            val albumArt: Uri? = song.albumArt
+            val albumArt: String? = song.albumArt
             if (albumArt != null) {
-                coverImage.setImageURI(albumArt)
+                coverImage.setImageURI(Uri.parse(albumArt))
 
                 if (coverImage.drawable == null) {
                     coverImage.setImageResource(R.drawable.man)

@@ -46,25 +46,35 @@ class HomeActivity : AppCompatActivity(), HomeAdapter.OnSongClickListener {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        reactionButtons()
+
         //initialize view model
         initializeAndCheckViewModel()
 
         //check permission
         if (checkReadStoragePermissions()) {
             songsList = fetchSongs()
-            viewModel.deleteAllMusicsList()
-            viewModel.setMusicsList(songsList)
         }
+
+        viewModel.setMusicsList(songsList)
 
         //setup recycler view
         setupRecyclerView()
-        viewModel.getAllMusics()
-        viewModel.getMusics().observe(this, Observer {
+    }
 
-            Toast.makeText(this, it.size.toString(), Toast.LENGTH_SHORT).show()
+    private fun reactionButtons() {
 
-        })
+        binding.btnFavoriteList.setOnClickListener {
+            Toast.makeText(this, "Coming soon !", Toast.LENGTH_SHORT).show()
+        }
 
+        binding.btnAppInfo.setOnClickListener {
+            Toast.makeText(this, "Coming soon !", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnShuffle.setOnClickListener {
+            Toast.makeText(this, "Coming soon !", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setupRecyclerView() {
@@ -192,7 +202,7 @@ class HomeActivity : AppCompatActivity(), HomeAdapter.OnSongClickListener {
                 song.duration = duration
                 song.size = size
                 song.albumId = albumId
-                song.albumArt = albumartUri
+                song.albumArt = albumartUri.toString()
                 song.isFavorite = false
                 song.path = path
                 //add song to songs list

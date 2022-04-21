@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id("kotlin-parcelize")
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+
 }
 
 android {
@@ -59,4 +61,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     //to use Room with Rxjava2
     implementation "androidx.room:room-rxjava2:$room_version"
+    //to use Kotlin annotation processing tool (kapt)
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
 }

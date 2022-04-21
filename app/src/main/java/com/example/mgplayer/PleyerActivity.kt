@@ -5,15 +5,22 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mgplayer.databinding.ActivityPleyerBinding
 import com.example.mgplayer.model.Music.convertMillisToString
 import com.example.mgplayer.model.Song
+import com.example.mgplayer.view.home.HomeAdapter
+import com.example.mgplayer.viewmodel.SongViewModel
+import com.example.mgplayer.viewmodel.SongViewModelProvider
 import java.lang.String
 import java.util.*
 import kotlin.collections.ArrayList
 
-class PleyerActivity : AppCompatActivity() {
+class PleyerActivity : AppCompatActivity(), HomeAdapter.OnSongClickListener {
 
     lateinit var binding: ActivityPleyerBinding
 
@@ -25,6 +32,8 @@ class PleyerActivity : AppCompatActivity() {
     var music: Song? = null
     var musicList: ArrayList<Song> = ArrayList()
     lateinit var timer: Timer
+    lateinit var viewModel: SongViewModel
+
 
     var musicPlayer: MediaPlayer? = null
 
@@ -35,11 +44,18 @@ class PleyerActivity : AppCompatActivity() {
         setContentView(binding.root)
         timer = Timer()
 
+        initializeAndCheckViewModel()
+
         music = intent.extras?.getParcelable("music")
         nowPlaying = intent.getIntExtra("position", 0)
         musicList = intent.getSerializableExtra("listMusic") as ArrayList<Song>
 
 
+
+        viewModel.getAllMusics()
+        viewModel.getMusics().observe(this, androidx.lifecycle.Observer {
+            musicList = it as ArrayList<Song>
+        })
         musicPlayer = MediaPlayer.create(this, Uri.parse(musicList.get(nowPlaying).path))
         musicPlayer?.start()
 
@@ -187,6 +203,14 @@ class PleyerActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnAddToFavorite.setOnClickListener {
+            Toast.makeText(this,"Coming soon !",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnShare.setOnClickListener {
+            Toast.makeText(this,"Coming soon !",Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     fun setInfoMusic(nowPlay: Int, start: Boolean) {
@@ -207,9 +231,9 @@ class PleyerActivity : AppCompatActivity() {
                 convertMillisToString(it.duration.toLong()).toString()
             binding.musicName.text = music.name
 
-            val albumArt: Uri? = music.albumArt
+            val albumArt: kotlin.String? = music.albumArt
             if (albumArt != null) {
-                binding.imgMusicPlayer.setImageURI(albumArt)
+                binding.imgMusicPlayer.setImageURI(Uri.parse(albumArt))
 
                 if (binding.imgMusicPlayer.drawable == null) {
                     binding.imgMusicPlayer.setImageResource(R.drawable.man)
@@ -251,6 +275,19 @@ class PleyerActivity : AppCompatActivity() {
             nowPlaying = 0
         }
         setInfoMusic(nowPlaying, true)
+
+    }
+
+    override fun onSongClick(song: Song, position: Int, list: ArrayList<Song>) {
+
+    }
+
+    fun initializeAndCheckViewModel() {
+        //initialize view model
+        viewModel = ViewModelProvider(
+            this,
+            SongViewModelProvider(this)
+        ).get(SongViewModel::class.java)
 
     }
 }

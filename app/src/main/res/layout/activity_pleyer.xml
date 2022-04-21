@@ -14,25 +14,25 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_margin="16dp"
-            app:cardCornerRadius="50dp"
-            app:cardBackgroundColor="@color/app_purple_dark">
+            app:cardBackgroundColor="@color/app_purple_dark"
+            app:cardCornerRadius="50dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="M G Player"
-                android:textColor="@color/app_white"
-                android:textStyle="bold"
-                android:textSize="22sp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textAlignment="center"/>
+                android:text="M G Player"
+                android:textAlignment="center"
+                android:textColor="@color/app_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="320dp"
-            android:layout_height="320dp"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
             android:layout_gravity="center"
             app:cardCornerRadius="61dp"
             app:cardElevation="6dp">
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="26dp"
             android:layout_marginRight="16dp"
             android:orientation="vertical">
 
@@ -200,6 +200,11 @@
 
         </RelativeLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerViewPlayer"/>
+
     </LinearLayout>
 
     <RelativeLayout
@@ -227,6 +232,7 @@
             app:tint="@color/app_purple_dark" />
 
         <ImageView
+            android:id="@+id/btnShare"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentRight="true"

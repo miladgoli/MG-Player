@@ -24,6 +24,7 @@ class SongViewModel(val repository: SongRepository) : ViewModel() {
         repository.setMusicsList(list)
             .subscribeOn(Schedulers.io())
             .subscribe(object : CompletableObserver {
+
                 override fun onSubscribe(d: Disposable) {
                     compositeDisposable.add(d)
                 }
