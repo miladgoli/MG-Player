@@ -21,8 +21,8 @@ this is the whole concept that **MG Player** has:))
 
 ## Demo
 
-<img src="https://user-images.githubusercontent.com/75157969/179456664-c1092e19-28a4-4144-8c45-9e59be1d5dee.jpg" alt="TSP_screen_shot" width="200"/>  
-<img src="https://user-images.githubusercontent.com/75157969/179456681-cc26d5d1-973a-4d87-8569-a8db4f130226.jpg" alt="TSP_screen_shot" width="200"/> 
+<img src="https://user-images.githubusercontent.com/75157969/179456664-c1092e19-28a4-4144-8c45-9e59be1d5dee.jpg" alt="MG_Player_screen_shot" width="200"/>  
+<img src="https://user-images.githubusercontent.com/75157969/179456681-cc26d5d1-973a-4d87-8569-a8db4f130226.jpg" alt="MG_Player_screen_shot" width="200"/> 
 
 
 
